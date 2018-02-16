@@ -12,6 +12,7 @@ import {Router, Route} from 'react-router'
 import reducers from 'reducers'
 import Layout from 'containers/layout'
 import Phones from 'containers/phones'
+import Phone from 'containers/phone'
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 const history = syncHistoryWithStore(browserHistory, store)
@@ -22,8 +23,8 @@ ReactDOM.render(
             <Route component={Layout}>
                 <Route path="/" component={Phones}></Route>
             </Route>
+            <Route path="phones/:id" component={Phone}></Route>
         </Router>
     </Provider>,
     document.getElementById('root')
-
 );
